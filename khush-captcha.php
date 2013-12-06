@@ -34,8 +34,8 @@ add_action('comment_form_after_fields', 'khush_captcha_comments', 1);
 add_filter('preprocess_comment', 'khush_captcha_check_comment');
 
 	//edit this file to change error messages
-	include_once 'khush-captcha/khush-captcha-config.php';
-	include_once 'khush-captcha/khush-captcha-class.php';
+	include_once 'khush-captcha-core/khush-captcha-config.php';
+	include_once 'khush-captcha-core/khush-captcha-class.php';
 	$khushCaptchaClass = new khushCaptcha();
 	
  /**
@@ -69,7 +69,7 @@ add_filter('preprocess_comment', 'khush_captcha_check_comment');
 	// this function adds the captcha to the register form
 	function khushcap_register_form() {
 		global $khushCaptchaClass;
-		echo '<img src="' . WP_PLUGIN_URL . '/khush-captcha/khush-captcha/captcha-gen.php" ><br />';
+		echo '<img src="' . WP_PLUGIN_URL . '/khush-captcha/khush-captcha-core/captcha-gen.php" ><br />';
 		$color_str = ucfirst($_SESSION['color_text']);
 		printf(__('Type The %s Captcha Characters Below.', 'khush-captcha'), $color_str);
 	?>	
@@ -106,7 +106,7 @@ add_filter('preprocess_comment', 'khush_captcha_check_comment');
 			return true;
 		}
 	
-		echo '<img src="' . WP_PLUGIN_URL . '/khush-captcha/khush-captcha/captcha-gen.php" ><br />';
+		echo '<img src="' . WP_PLUGIN_URL . '/khush-captcha/khush-captcha-core/captcha-gen.php" ><br />';
 		$color_str = ucfirst($_SESSION['color_text']);
 		printf(__('Type The %s Captcha Characters Below.', 'khush-captcha'), $color_str);
 	?>	
