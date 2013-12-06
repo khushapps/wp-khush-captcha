@@ -23,15 +23,12 @@ License: GPL2
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
-
 if(!session_id()) {
         session_start();
 }
-
 // Add Captcha To Registration Form
 add_action( 'register_form', 'khushcap_register_form' );
 add_action( 'register_post', 'khushcap_register_post', 10, 3 );
-
 // Add Captcha To Comments Form
 add_action('comment_form_after_fields', 'khush_captcha_comments', 1);
 add_filter('preprocess_comment', 'khush_captcha_check_comment');
@@ -120,7 +117,7 @@ add_filter('preprocess_comment', 'khush_captcha_check_comment');
 	}
 	
 	// this function checks comments captcha
-	function khush_captcha_check_comment($comment,$errors) {
+	function khush_captcha_check_comment($comment) {
 
 		global $khushCaptchaClass;
 		
